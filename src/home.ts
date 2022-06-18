@@ -1,6 +1,6 @@
 const form = document.querySelector('#form-cadastro') as HTMLElement;
 const tabela = document.querySelector('#tbody') as HTMLElement;
-let idx: string = form.idx.value;
+const idx : any = form.idx.value;
 
 const session = localStorage.getItem("session");
 let logged = sessionStorage.getItem("logado");
@@ -52,13 +52,13 @@ const salvarRecado = (e: { id: string, descricao: string, detalhamento: string})
         recados.push({id:recados.length + 1, descricao, detalhamento});
         atualizarLocalStorage(recados);
         preencherTabela();
-        form.reset();
+        (document.querySelector('#form-cadastro') as HTMLFormElement).reset();
     }else{
         let recado = {id: idx, descricao, detalhamento}
 
         atualizarRecado(idx, recado);
         preencherTabela();
-        form.reset();
+        (document.querySelector('#form-cadastro') as HTMLFormElement).reset();
         idx = 'novo';
     }
 }

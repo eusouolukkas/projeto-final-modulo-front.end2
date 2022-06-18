@@ -1,41 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-4 d-flex justify-content-center mt-5">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal-cadastro">Cadastrar</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-cadastro" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nova Mensagem</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Titulo:</label>
+                                <input type="text" class="form-control" id="input-titulo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Descrição:</label>
+                                <textarea class="form-control" id="input-descricao"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btn-salvar">Salvar Mensagem</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./CSS/styles.css">
-        <title>Home</title>
-    </head>
+        <!-- EDITAR RECADO -->
+        <div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Atualizar Recado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Titulo:</label>
+                                <input type="text" class="form-control" id="input-titulo-editar">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Descrição:</label>
+                                <textarea class="form-control" id="input-descricao-editar"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="btn-editar">Atualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <body>
-        <h1 class="recados">Meus Recados</h1>
-        <form id="form-cadastro">
-            
-            <label for="input-titulo"></label>
-            <input type="text" name="descricao" id="input-titulo" placeholder="Descrição">
 
-            <label for="input-descricao"></label>
-            <input type="text" name="detalhamento" id="input-descricao" placeholder="Detalhamento">
+        <!-- APAGAR RECADO -->
+        <div class="modal" tabindex="-1" id="modal-apagar">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Apagar Recado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja excluir esse recado?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="btn-apagar">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="./dist/js/home.js"></script>
+</body>
 
-            <input type="submit" value="Salvar" id="btn-salvar">
-            <input type="submit" value="Sair" id="btn-sair"></input>
-            <input type="hidden" value="novo" id="idx" name="idx" />
-        </form>
-
-        <table id="tabela-registros">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Descrição</th>
-                    <th>Detalhamento</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-
-            <tbody id="tbody"></tbody>
-        </table>
-        <script src="./dist/js/home.js"></script>
-    </body>
 </html>
