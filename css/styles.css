@@ -54,6 +54,22 @@ h2 {
     color: orangered;
 }
 
+th {
+    font-size: 20px;
+}
+
+a {
+    color: orangered;
+    font-size: 20px;
+    position: absolute;
+    bottom: 140px;
+    right: 340px;
+}
+
+body {
+    background-color: rgb(192, 191, 191);
+}
+
 #conta-login {
     font-size: 25px;
 }
@@ -89,14 +105,6 @@ h2 {
     height: 50px;
     margin-bottom: 10px;
     color: orangered;
-}
-
-a {
-    color: orangered;
-    font-size: 20px;
-    position: absolute;
-    bottom: 140px;
-    right: 340px;
 }
 
 .recados {
@@ -148,10 +156,6 @@ a {
     border-radius: 10%;
 }
 
-body {
-    background-color: rgb(192, 191, 191);
-}
-
 #logar {
     position: absolute;
     left: 155px;
@@ -176,9 +180,7 @@ body {
 
 }
 
-th {
-    font-size: 20px;
-}
+
 
 #btn-editar{
     width: 30px;
@@ -202,4 +204,18 @@ th {
     background-color: white;
     border-color: orangered;
     border-radius: 10%;
+}
+
+.animar {
+    animation-name: anima;
+    animation-duration: 1s;
+}
+
+@keyframes anima {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

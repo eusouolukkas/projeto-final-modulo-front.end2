@@ -9,7 +9,7 @@ function logar() {
     const senha = document.querySelector("#pass");
     let usuarios_novo = [];
     //pego todos os dados de usuarios que tenho no localstorage
-    usuarios_novo = JSON.parse(localStorage.find("usuarios"));
+    usuarios_novo = JSON.parse(localStorage.getItem("usuarios"));
     //crio um objeto para comparar com os dados do objero que vem do localstorage
     let usuario = {
         email: "",
